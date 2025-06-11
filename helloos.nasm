@@ -16,8 +16,9 @@ DD    2880               ; size of dirve
 DB    0,0,0x29           ; unknown
 DD    0xffffffff         ; maybe serial number ofvolume
 DB    "HELLO-OS   "      ; disk name(11byte)
-DB    "FAT12   "         ; name of format(8byte)
-RESB  18,0
+DB    "FAT12   "         ; name of format(8byte)]
+
+RESB  18
 
 ; main program
 DB    0xb8, 0x00, 0x00, 0x8e, 0xd0, 0xbc, 0x00, 0x7c
@@ -31,9 +32,10 @@ DB   0x0a, 0x0a
 DB   "hello, world"
 DB   0x0a
 DB   0
-RESB    0x1fe
-DB   0x55, 0xaa
 
+RESB 0x1fe-($-$$)
+
+DB   0x55, 0xaa
 
 ; boot sectpr
 DB   0xf0, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00
